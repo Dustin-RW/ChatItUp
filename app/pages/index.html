@@ -1,29 +1,40 @@
 <!DOCTYPE html>
-<html np-app="chatItUp">
+<html ng-app="chatItUp">
+
 <head lang="en">
     <meta charset="UTF-8">
     <title>Chat It Up</title>
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/style.css">
 </head>
+
 <body>
 
+  <div class="ui-view"></div>
 
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script> <!-- angulars source script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script> <!-- UI Router Source -->
+    <!-- angulars source script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+    <!-- UI Router Source -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <!--  FireBase -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
     <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAiguB0qrUoT3yZ5wcP2AzfYP0nnOn9iKA",
-        authDomain: "chatitup-358a1.firebaseapp.com",
-        databaseURL: "https://chatitup-358a1.firebaseio.com",
-        storageBucket: "chatitup-358a1.appspot.com",
-        messagingSenderId: "794501214045"
-      };
-      firebase.initializeApp(config);
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAiguB0qrUoT3yZ5wcP2AzfYP0nnOn9iKA",
+            authDomain: "chatitup-358a1.firebaseapp.com",
+            databaseURL: "https://chatitup-358a1.firebaseio.com",
+            storageBucket: "chatitup-358a1.appspot.com",
+            messagingSenderId: "794501214045"
+        };
+        firebase.initializeApp(config);
     </script>
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/services/Room.js"></script>
+    <script src="/scripts/controllers/HomeCtrl.js"></script>
 </body>
+
 </html>
