@@ -1,0 +1,14 @@
+.room-container {
+  position: relative;
+  height:100vh;
+  background: grey;
+  border-right: 2px solid #696969;
+}
+
+.chat-header {
+  margin-bottom: 40px;
+}
+
+.create-button {
+  float: right;
+}

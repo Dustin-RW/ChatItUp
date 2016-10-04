@@ -18,6 +18,6 @@
 
 
   angular
-    .module('chatItUp', ['firebase', 'ui.router'])
+    .module('chatItUp', ['firebase', 'ui.bootstrap', 'ui.router'])
     .config(config);
 })();

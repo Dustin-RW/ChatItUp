@@ -1,15 +1,21 @@
 (function() {
 
-  function HomeCtrl(Room) {
-    console.log(Room);
+  function HomeCtrl(Room, $uibModal) {
     this.rooms = Room.all;
-    // Room.add('Room 2');
-    this.addRoom(room) {
-      Room.add(room);
+
+    this.open = function(size) {
+      var modalInstance = $uibModal.open({
+        animation: this.animationsEnabled,
+        templateUrl: '/templates/myModalContent.html',
+        controller: 'ModalCtrl',
+        controllerAs: 'ctrl'
+      });
     }
   }
 
+
+
   angular
   .module('chatItUp')
-  .controller('HomeCtrl', ['Room', HomeCtrl]);
+  .controller('HomeCtrl', ['Room', '$uibModal', HomeCtrl]);
 }());
