@@ -2,15 +2,29 @@
 
   function Room($firebaseArray) {
     var ref = firebase.database().ref().child("rooms");
-    var rooms = $firebaseArray(ref);
+    var messagesRef = ref.child("messages");
 
-    // rooms.$add("Room 1");
+    var rooms = $firebaseArray(ref);
+    var messages = $firebaseArray(messagesRef);
+
+    messages[0] = {
+      message: {
+        
+      }
+    }
+
+
+
+    var getMessages = function() {
+
+    };
 
     return {
       all: rooms,
+      allMessages: messages,
       add: function(room) {
         rooms.$add(room);
-      }
+      },
     };
   }
 

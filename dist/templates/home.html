@@ -7,6 +7,21 @@
     </h2>
   </div>
   <div ng-repeat="room in home.rooms">
-    <h4 class="room-names">{{ room.$value }}</h4>
+    <h4 class="room-names" ng-click="home.getRoom(room.$value)">{{ room.$value }}</h4>
   </div>
+</section>
+<section class="message-container col-md-9">
+  <h3 class="message-header">{{ home.room }} Messages</h3>
+  <table class="table table-striped">
+    <tr>
+      <td>
+        {{ home.messages }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        ...
+      </td>
+    </tr>
+  </table>
 </section>
