@@ -1,34 +1,36 @@
 (function() {
 
-  function Room($firebaseArray) {
-    var ref = firebase.database().ref().child("rooms");
-    var messagesRef = ref.child("messages");
-
-    var rooms = $firebaseArray(ref);
-    var messages = $firebaseArray(messagesRef);
-
-    messages[0] = {
-      message: {
-        
-      }
-    }
+ function Room($firebaseArray) {
+   var ref = firebase.database().ref().child("rooms");
+   var rooms = $firebaseArray(ref);
+   var roomMessages;
 
 
+   var addMessageToRoom = function(roomId, message) {
+     var messagesRef = firebase.database().ref().child("rooms/" + roomId + '/messages');
+     var messages = $firebaseArray(messagesRef);
+     console.log(message);
+     messages.$add(message);
+   };
 
-    var getMessages = function() {
+   var messagesForRoom = function(roomId) {
+     var ref = firebase.database().ref().child("rooms/" + roomId + '/messages');
+     return $firebaseArray(ref);
+   };
 
-    };
+   return {
+     all: rooms,
+     add: function(room) {
+       rooms.$add(room);
+     },
+     // allMessages: messagesForRoom(room),
+     addMessage: function(roomId, message) {
+       addMessageToRoom(roomId, message);
+     }
+   };
+ }
 
-    return {
-      all: rooms,
-      allMessages: messages,
-      add: function(room) {
-        rooms.$add(room);
-      },
-    };
-  }
-
-  angular
-    .module('chatItUp')
-    .factory('Room', ['$firebaseArray', Room]);
+ angular
+   .module('chatItUp')
+   .factory('Room', ['$firebaseArray', Room]);
 })();

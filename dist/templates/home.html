@@ -7,20 +7,21 @@
     </h2>
   </div>
   <div ng-repeat="room in home.rooms">
-    <h4 class="room-names" ng-click="home.getRoom(room.$value)">{{ room.$value }}</h4>
+    <h4 class="room-names" ng-click="home.getRoomById(room.$id)">{{ room.$value }}</h4>
   </div>
 </section>
 <section class="message-container col-md-9">
-  <h3 class="message-header">{{ home.room }} Messages</h3>
+  <h3 class="message-header">{{ home.room.$value }} Messages</h3>
   <table class="table table-striped">
     <tr>
       <td>
-        {{ home.messages }}
+        {{ home.room.$id }}
       </td>
     </tr>
     <tr>
       <td>
-        ...
+        <input type="button" ng-click="home.addMessage(home.room.$id, home.newMessageText)" name="" value="Submit">
+        <input type="text" ng-model="home.newMessageText" name="" value="">
       </td>
     </tr>
   </table>

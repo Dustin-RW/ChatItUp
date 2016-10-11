@@ -1,11 +1,27 @@
+var testing;
 (function() {
 
   function HomeCtrl(Room, $uibModal) {
     this.rooms = Room.all;
-    this.room = 'Click on a Room for';
+    this.room = null;
 
-    this.getRoom = function(room) {
-      this.room = room;
+
+    // this.getRoom = function(room) {
+    //   this.room = room;
+    // }
+
+    this.getRoomById = function(roomId) {
+      this.room = this.rooms.$getRecord(roomId);
+    }
+
+    this.addMessage = function(roomId, messageText) {
+      // console.log(roomId);
+      console.log(messageText);
+
+      Room.addMessage(roomId, {
+        content: messageText
+      });
+      this.newMessageText = '';
     }
 
     this.open = function(size) {
