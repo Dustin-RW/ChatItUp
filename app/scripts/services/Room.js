@@ -9,7 +9,6 @@
    var addMessageToRoom = function(roomId, message) {
      var messagesRef = firebase.database().ref().child("rooms/" + roomId + '/messages');
      var messages = $firebaseArray(messagesRef);
-     console.log(message);
      messages.$add(message);
    };
 
