@@ -7,6 +7,22 @@
     </h2>
   </div>
   <div ng-repeat="room in home.rooms">
-    <h4 class="room-names">{{ room.$value }}</h4>
+    <h4 class="room-names" ng-click="home.getRoomById(room.$id)">{{ room.roomName }}</h4>
   </div>
+</section>
+<section class="message-container col-md-9">
+  <h3 class="message-header">{{ home.room.roomName }} Messages</h3>
+  <table class="table table-striped">
+    <tr ng-hide="!home.room">
+      <td>
+        <input type="button" ng-click="home.addMessage(home.room.$id, home.newMessageText)" name="" value="Submit">
+        <input type="text" ng-model="home.newMessageText" name="" value="">
+      </td>
+    </tr>
+    <tr ng-repeat="message in home.room.messages">
+      <td>
+        {{message.content}}
+      </td>
+    </tr>
+  </table>
 </section>
