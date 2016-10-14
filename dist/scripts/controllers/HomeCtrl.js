@@ -5,18 +5,11 @@ var testing;
     this.rooms = Room.all;
     this.room = null;
 
-
-    // this.getRoom = function(room) {
-    //   this.room = room;
-    // }
-
     this.getRoomById = function(roomId) {
       this.room = this.rooms.$getRecord(roomId);
     }
 
     this.addMessage = function(roomId, messageText) {
-      // console.log(roomId);
-      console.log(messageText);
 
       Room.addMessage(roomId, {
         content: messageText

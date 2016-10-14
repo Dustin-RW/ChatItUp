@@ -20,9 +20,8 @@
    return {
      all: rooms,
      add: function(room) {
-       rooms.$add(room);
+       rooms.$add({roomName: room});
      },
-     // allMessages: messagesForRoom(room),
      addMessage: function(roomId, message) {
        addMessageToRoom(roomId, message);
      }
