@@ -1,6 +1,6 @@
 (function() {
 
-  function ModalCtrl(Room, $uibModalInstance) {
+  function ModalCtrl(Room, $uibModalInstance, $cookies) {
     var $ctrl = this;
 
     $ctrl.animationsEnabled = true;
@@ -14,9 +14,15 @@
       $ctrl.newRoomName = '';
       $ctrl.closeModal();
     }
+
+    $ctrl.setNickname = function() {
+      $cookies.put('blocChatCurrentUser', $ctrl.newNickname);
+      $ctrl.newNickname = '';
+      $ctrl.closeModal();
+    }
   };
 
   angular
     .module('chatItUp')
-    .controller('ModalCtrl', ['Room', '$uibModalInstance', ModalCtrl]);
+    .controller('ModalCtrl', ['Room', '$uibModalInstance', '$cookies', ModalCtrl]);
 })();

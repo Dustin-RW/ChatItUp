@@ -1,7 +1,6 @@
-var testing;
 (function() {
 
-  function HomeCtrl(Room, $uibModal) {
+  function HomeCtrl(Room, $uibModal, $cookies) {
     this.rooms = Room.all;
     this.room = null;
 
@@ -12,6 +11,7 @@ var testing;
     this.addMessage = function(roomId, messageText) {
 
       Room.addMessage(roomId, {
+        nickname: $cookies.get('blocChatCurrentUser'),
         content: messageText
       });
       this.newMessageText = '';
@@ -31,5 +31,5 @@ var testing;
 
   angular
   .module('chatItUp')
-  .controller('HomeCtrl', ['Room', '$uibModal', HomeCtrl]);
+  .controller('HomeCtrl', ['Room', '$uibModal', '$cookies', HomeCtrl]);
 }());
