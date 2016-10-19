@@ -9,7 +9,19 @@
    var addMessageToRoom = function(roomId, message) {
      var messagesRef = firebase.database().ref().child("rooms/" + roomId + '/messages');
      var messages = $firebaseArray(messagesRef);
+
      messages.$add(message);
+
+     messages.$loaded().then(function(messages) {
+       var messagesLength = messages.length;
+
+       if (messagesLength > 19) {
+         messages.$remove(messages[0])
+       }
+
+       console.log(messagesLength);
+     });
+
    };
 
    var messagesForRoom = function(roomId) {
