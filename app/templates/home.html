@@ -15,13 +15,14 @@
   <table class="table table-striped">
     <tr ng-hide="!home.room">
       <td>
-        <input type="button" ng-click="home.addMessage(home.room.$id, home.newMessageText)" name="" value="Submit">
         <input type="text" ng-model="home.newMessageText" name="" value="">
+        <input type="button" ng-click="home.addMessage(home.room.$id, home.newMessageText)" name="" value="Submit">
       </td>
     </tr>
     <tr ng-repeat="message in home.room.messages">
       <td>
-        {{message.nickname}}: {{message.content}}
+        <strong>{{message.nickname}}</strong> says: <br />
+        <p>{{message.content}}</p>
       </td>
     </tr>
   </table>
