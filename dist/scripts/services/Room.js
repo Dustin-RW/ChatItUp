@@ -18,8 +18,6 @@
        if (messagesLength > 19) {
          messages.$remove(messages[0])
        }
-
-       console.log(messagesLength);
      });
 
    };
